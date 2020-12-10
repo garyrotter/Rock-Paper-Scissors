@@ -13,13 +13,14 @@ function game() {
     for (let i = 0; i < games; i++) {
         // player inputs a choice, stored in var playerSelection 
         let playerSelection = prompt("Choose between rock, paper, or scissors").toLowerCase();
-        // computer making a random choice
+        // computer making a random choice, later stored in var computerSelection
         function computerPlay() {
                 return ["paper", "rock", "scissors"][Math.floor(Math.random() * 3)];
         }
         // assigned computer choice to computerSelection
         let computerSelection = computerPlay();
-
+        // playing rounds, incrementing winner's points
+        
         let round = playRound(playerSelection, computerSelection);
         if (round === "wins") {
             playerScore++;
@@ -29,6 +30,8 @@ function game() {
             console.log("You lose!");
         } else if (round === "ties") {
             console.log("Tied!");
+        } else {
+            console.log('');
         }
     }
 
@@ -42,7 +45,7 @@ function game() {
 // end game
 
 
-// play a round and get winner or loser, increment winner's points.
+// play a round and get winner or loser
 function playRound(playerSelection, computerSelection) {
         if (playerSelection == 'rock') {
             if (computerSelection == 'scissors') {
